@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <>
-      <style>{\`
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Nunito', sans-serif; }
@@ -123,12 +123,12 @@ export default function Home() {
           font-family: 'Nunito', sans-serif; cursor: pointer;
           transition: all 0.2s; white-space: nowrap;
         }
-      \`}</style>
+      `}</style>
 
       {emotes.map((e, i) => (
         <div key={i} className="emote-float" style={{
-          left: \`\${5 + i * 9.5}%\`, bottom: \`\${8 + (i % 3) * 6}%\`,
-          animationDelay: \`\${i * 0.5}s\`, animationDuration: \`\${3.5 + i * 0.3}s\`,
+          left: `${5 + i * 9.5}%`, bottom: `${8 + (i % 3) * 6}%`,
+          animationDelay: `${i * 0.5}s`, animationDuration: `${3.5 + i * 0.3}s`,
         }}>{e}</div>
       ))}
 
