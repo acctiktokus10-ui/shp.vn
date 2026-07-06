@@ -196,7 +196,7 @@ function HomeContent() {
               <span style={{ fontSize: 18, fontWeight: 900, color: "#ff4d6d" }}>600k / tháng</span>
             </div>
             <a
-              href="https://zaloapp.com/qr/p/nlk1cpomu2t0"
+              href="https://zalo.me/g/xqgfxvoidkgodxx0ubvy"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-main"
