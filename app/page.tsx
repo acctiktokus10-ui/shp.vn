@@ -182,7 +182,7 @@ function HomeContent() {
               className="btn-main"
               style={{
                 flex: 1, width: "auto", margin: 0,
-                background: "linear-gradient(135deg,#ff4d6d,#c9184a)",
+                background: "linear-gradient(135deg,#c8a2e0,#a67ac9)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 textDecoration: "none",
               }}
@@ -242,8 +242,8 @@ function HomeContent() {
             <p style={{ fontSize: 16, fontWeight: 800, color: "#ff4d6d", marginBottom: 10, lineHeight: 1.5 }}>
               Xin lỗi tình yêu! Link này đã hết hiệu lực vì quá 30 phút.
             </p>
-            <p style={{ fontSize: 14, color: "#555", fontWeight: 600, marginBottom: 20, lineHeight: 1.5 }}>
-              Hãy quay lại nhóm để tạo lại link mới nhé!
+            <p style={{ fontSize: 14, color: "#66bb6a", fontWeight: 700, marginBottom: 20, lineHeight: 1.5 }}>
+              Hãy quay lại nhóm để tạo link mới nhé!
             </p>
             <button
               className="btn-main"
