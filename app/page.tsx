@@ -240,7 +240,7 @@ function HomeContent() {
           }}>
             <div style={{ fontSize: 40, marginBottom: 10 }}>⏰</div>
             <p style={{ fontSize: 16, fontWeight: 800, color: "#ff4d6d", marginBottom: 10, lineHeight: 1.5 }}>
-              Xin lỗi tình yêu! Link này đã hết hiệu lực vì quá 30 phút.
+              Xin lỗi tình yêu! Link này đã hết hiệu lực vì quá 120 phút.
             </p>
             <p style={{ fontSize: 14, color: "#66bb6a", fontWeight: 700, marginBottom: 20, lineHeight: 1.5 }}>
               Hãy quay lại nhóm để tạo link mới nhé!
