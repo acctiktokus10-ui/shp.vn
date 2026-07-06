@@ -5,8 +5,8 @@ interface Props {
   params: { code: string };
 }
 
-// Thời gian hết hạn: 30 phút (tính bằng milliseconds)
-const EXPIRY_MS = 30 * 60 * 1000;
+// Thời gian hết hạn: 120 phút (tính bằng milliseconds)
+const EXPIRY_MS = 120 * 60 * 1000;
 
 // Hỗ trợ cả 2 dạng dữ liệu cũ (string) và mới ({ affiliateLink, createdAt })
 type StoredLink = string | { affiliateLink: string; createdAt: number };
@@ -29,7 +29,7 @@ export default async function ShopeeRedirect({ params }: Props) {
   const isExpired = Date.now() - createdAt > EXPIRY_MS;
 
   if (isExpired) {
-    // Quá 30 phút → tự động quay về giao diện chính của web
+    // Quá 120 phút → tự động quay về giao diện chính của web
     redirect("/?expired=1");
   }
 
