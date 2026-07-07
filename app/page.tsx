@@ -302,10 +302,9 @@ function HomeContent() {
                 "Không bấm vào link áp mã giảm giá sau khi bấm link",
               ].map((line, i) => (
                 <p key={i} style={{
-                  fontSize: 10, fontWeight: 700, color: "#444",
-                  margin: i === 0 ? "0 0 7px" : "7px 0",
-                  lineHeight: 1.2,
-                  whiteSpace: "nowrap",
+                  fontSize: 14, fontWeight: 700, color: "#444",
+                  margin: i === 0 ? "0 0 9px" : "9px 0",
+                  lineHeight: 1.35,
                 }}>
                   {i + 1}. {line} ✅
                 </p>
@@ -313,8 +312,11 @@ function HomeContent() {
             </div>
 
             <p style={{
-              fontSize: 10.5, fontStyle: "italic", color: "#a9788c",
-              marginBottom: 14, lineHeight: 1.4, padding: "0 4px",
+              fontSize: 11.5, fontStyle: "italic", color: "#c99a3d",
+              marginBottom: 14, lineHeight: 1.4, padding: "8px 10px",
+              background: "rgba(255,230,150,0.35)",
+              border: "1px solid rgba(255,204,102,0.5)",
+              borderRadius: 10,
             }}>
               Khi đặt đơn xong hãy quay lại nhóm zalo đó vào khoảng 8h sáng ngày mai để kiểm tra bằng cách nhắn #donhang và #vitien vào nhóm nhé!
             </p>
