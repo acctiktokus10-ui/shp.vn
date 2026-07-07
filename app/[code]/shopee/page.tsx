@@ -29,8 +29,9 @@ export default async function ShopeeRedirect({ params }: Props) {
   const isExpired = Date.now() - createdAt > EXPIRY_MS;
 
   if (isExpired) {
-    // Quá 120 phút → tự động quay về giao diện chính của web
-    redirect("/?expired=1");
+    // Quá 120 phút → tự động quay về giao diện chính của web,
+    // kèm theo link gốc để người dùng có thể "Khôi Phục Link!" nếu muốn
+    redirect(`/?expired=1&link=${encodeURIComponent(affiliateLink)}`);
   }
 
   redirect(affiliateLink);
