@@ -324,7 +324,10 @@ function HomeContent() {
             <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
               <button
                 className="btn-secondary"
-                style={{ margin: 0, fontSize: 12, flex: 1 }}
+                style={{
+                  margin: 0, fontSize: 11, flex: 1, alignSelf: "center",
+                  padding: "9px", borderRadius: 12,
+                }}
                 onClick={() => setShowExpiredOverlay(false)}
               >
                 Quảng cáo
