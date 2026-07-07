@@ -312,10 +312,10 @@ function HomeContent() {
             </div>
 
             <p style={{
-              fontSize: 11.5, fontStyle: "italic", color: "#c99a3d",
+              fontSize: 11.5, fontStyle: "italic", color: "#4a8a7d",
               marginBottom: 14, lineHeight: 1.4, padding: "8px 10px",
-              background: "rgba(255,230,150,0.35)",
-              border: "1px solid rgba(255,204,102,0.5)",
+              background: "rgba(180,230,220,0.35)",
+              border: "1px solid rgba(120,200,185,0.5)",
               borderRadius: 10,
             }}>
               Khi đặt đơn xong hãy quay lại nhóm zalo đó vào khoảng 8h sáng ngày mai để kiểm tra bằng cách nhắn #donhang và #vitien vào nhóm nhé!
@@ -337,6 +337,13 @@ function HomeContent() {
                 MUA NGAY!
               </button>
             </div>
+
+            <p style={{
+              fontSize: 10, fontStyle: "italic", color: "#d4a017",
+              marginTop: 12, lineHeight: 1.4,
+            }}>
+              Tuyên dương và đề cao tinh thần tố cáo kẻ chộm hay mồi chào và cướp khách!
+            </p>
           </div>
         </div>
       )}
