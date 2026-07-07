@@ -5,9 +5,6 @@ interface Props {
   params: { code: string };
 }
 
-// Thời gian hết hạn: 120 phút (tính bằng milliseconds)
-const EXPIRY_MS = 120 * 60 * 1000;
-
 // Hỗ trợ cả 2 dạng dữ liệu cũ (string) và mới ({ affiliateLink, createdAt })
 type StoredLink = string | { affiliateLink: string; createdAt: number };
 
@@ -19,20 +16,9 @@ export default async function ShopeeRedirect({ params }: Props) {
     notFound();
   }
 
-  // Link cũ (được tạo trước khi có tính năng hết hạn) là string thuần
-  // → không có createdAt nên không áp dụng hết hạn, redirect như cũ
-  if (typeof stored === "string") {
-    redirect(stored);
-  }
+  // Lấy link gốc dù dữ liệu là string cũ hay object mới
+  const affiliateLink = typeof stored === "string" ? stored : stored.affiliateLink;
 
-  const { affiliateLink, createdAt } = stored;
-  const isExpired = Date.now() - createdAt > EXPIRY_MS;
-
-  if (isExpired) {
-    // Quá 120 phút → tự động quay về giao diện chính của web,
-    // kèm theo link gốc để người dùng có thể "Khôi Phục Link!" nếu muốn
-    redirect(`/?expired=1&link=${encodeURIComponent(affiliateLink)}`);
-  }
-
-  redirect(affiliateLink);
+  // Luôn hiển thị giao diện "Lưu ý quan trọng" trước, không còn kiểm tra hết hạn 120 phút nữa
+  redirect(`/?expired=1&link=${encodeURIComponent(affiliateLink)}`);
 }
