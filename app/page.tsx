@@ -302,7 +302,7 @@ function HomeContent() {
                 "Không bấm vào link áp mã giảm giá sau khi bấm link",
               ].map((line, i) => (
                 <p key={i} style={{
-                  fontSize: 18, fontWeight: 700, color: "#444",
+                  fontSize: 16, fontWeight: 700, color: "#444",
                   margin: i === 0 ? "0 0 9px" : "9px 0",
                   lineHeight: 1.35,
                 }}>
@@ -338,10 +338,10 @@ function HomeContent() {
                   MUA NGAY!
                 </button>
                 <span style={{
-                  fontSize: 9, color: "#aaa", fontWeight: 600,
+                  fontSize: 9, color: "#ffb800", fontWeight: 600,
                   textAlign: "center", marginTop: 3,
                 }}>
-                  Chuyển qua Shopee
+                  Chuyển qua trang Shopee
                 </span>
               </div>
             </div>
