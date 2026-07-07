@@ -1,4 +1,3 @@
-
 "use client";
 import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -33,7 +32,18 @@ const emotes = ["✨", "🎀", "💕", "🌸", "💖", "🍭", "🎵", "🌷", "
 function HomeContent() {
   const searchParams = useSearchParams();
   const isExpiredRedirect = searchParams.get("expired") === "1";
+  const originalLink = searchParams.get("link"); // link Shopee gốc được bọc trước đó
   const [showExpiredOverlay, setShowExpiredOverlay] = useState(isExpiredRedirect);
+
+  const handleRestoreLink = () => {
+    if (originalLink) {
+      window.location.href = decodeURIComponent(originalLink);
+    } else {
+      // Không có link gốc (trường hợp hiếm) → đóng overlay như phương án dự phòng
+      setShowExpiredOverlay(false);
+    }
+  };
+
   return (
     <>
       <style>{`
@@ -86,6 +96,14 @@ function HomeContent() {
         }
         .btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,77,109,0.45); }
         .btn-main:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
+        .btn-secondary {
+          width: 100%; padding: 13px;
+          background: #f1f1f1;
+          color: #777; border: none; border-radius: 14px;
+          font-size: 15px; font-weight: 800; font-family: 'Nunito', sans-serif;
+          cursor: pointer; transition: all 0.2s;
+        }
+        .btn-secondary:hover { background: #e6e6e6; transform: translateY(-2px); }
         .copy-btn {
           padding: 8px 14px; border: none; border-radius: 10px;
           font-size: 13px; font-weight: 700;
@@ -239,19 +257,25 @@ function HomeContent() {
             boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
           }}>
             <div style={{ fontSize: 40, marginBottom: 10 }}>⏰</div>
-            <p style={{ fontSize: 16, fontWeight: 800, color: "#ff4d6d", marginBottom: 10, lineHeight: 1.5 }}>
-              Xin lỗi tình yêu! Link này đã hết hiệu lực vì quá 120 phút.
+            <p style={{ fontSize: 16, fontWeight: 800, color: "#ff4d6d", marginBottom: 20, lineHeight: 1.5 }}>
+              Xin lỗi tình yêu vì đã quá 120 phút! Vui lòng ấn Khôi phục link để tiếp tục mua sắm nhé!
             </p>
-            <p style={{ fontSize: 14, color: "#66bb6a", fontWeight: 700, marginBottom: 20, lineHeight: 1.5 }}>
-              Hãy quay lại nhóm để tạo link mới nhé!
-            </p>
-            <button
-              className="btn-main"
-              style={{ margin: 0 }}
-              onClick={() => setShowExpiredOverlay(false)}
-            >
-              Đã Hiểu
-            </button>
+            <div style={{ display: "flex", gap: 10 }}>
+              <button
+                className="btn-secondary"
+                style={{ margin: 0 }}
+                onClick={() => setShowExpiredOverlay(false)}
+              >
+                Không Thích!
+              </button>
+              <button
+                className="btn-main"
+                style={{ margin: 0 }}
+                onClick={handleRestoreLink}
+              >
+                Khôi Phục Link!
+              </button>
+            </div>
           </div>
         </div>
       )}
