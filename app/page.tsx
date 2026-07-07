@@ -299,7 +299,7 @@ function HomeContent() {
                 "Bấm link bỏ giỏ hoặc mua ngay",
                 "Thao tác chậm lại để Shopee ghi nhận đơn",
                 "Không xem live trước hoặc sau khi bấm link",
-                "Không bấm vào link áp mã giảm giá sau khi bấm link",
+                "Không bấm vào link mã giảm giá của người khác sau khi bấm link",
               ].map((line, i) => (
                 <p key={i} style={{
                   fontSize: 16, fontWeight: 700, color: "#444",
