@@ -104,6 +104,19 @@ function HomeContent() {
           cursor: pointer; transition: all 0.2s;
         }
         .btn-secondary:hover { background: #e6e6e6; transform: translateY(-2px); }
+        .btn-blink {
+          animation: blinkGlow 1.1s ease-in-out infinite;
+        }
+        @keyframes blinkGlow {
+          0%, 100% {
+            box-shadow: 0 6px 20px rgba(255,77,109,0.35);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 6px 30px rgba(255,77,109,0.85), 0 0 0 6px rgba(255,143,171,0.25);
+            transform: scale(1.04);
+          }
+        }
         .copy-btn {
           padding: 8px 14px; border: none; border-radius: 10px;
           font-size: 13px; font-weight: 700;
@@ -253,8 +266,8 @@ function HomeContent() {
         }}>
           <div style={{
             background: "linear-gradient(160deg, #fff9fb 0%, #fff0f5 50%, #ffe8f2 100%)",
-            borderRadius: 24, padding: "26px 22px",
-            maxWidth: 320, width: "100%", textAlign: "center",
+            borderRadius: 24, padding: "26px 18px",
+            maxWidth: 360, width: "100%", textAlign: "center",
             boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
             border: "3px solid #ffd6e6",
             position: "relative",
@@ -276,9 +289,10 @@ function HomeContent() {
               background: "rgba(255,255,255,0.7)",
               border: "1.5px dashed #ffb7c9",
               borderRadius: 16,
-              padding: "14px 14px",
+              padding: "12px 10px",
               marginBottom: 18,
               textAlign: "left",
+              overflowX: "auto",
             }}>
               {[
                 "Xóa sản phẩm này khỏi giỏ hàng (nếu có)",
@@ -288,14 +302,22 @@ function HomeContent() {
                 "Không bấm vào link áp mã giảm giá sau khi bấm link",
               ].map((line, i) => (
                 <p key={i} style={{
-                  fontSize: 13, fontWeight: 700, color: "#444",
-                  margin: i === 0 ? "0 0 10px" : "10px 0",
-                  lineHeight: 1.4,
+                  fontSize: 10, fontWeight: 700, color: "#444",
+                  margin: i === 0 ? "0 0 7px" : "7px 0",
+                  lineHeight: 1.2,
+                  whiteSpace: "nowrap",
                 }}>
                   {i + 1}. {line} ✅
                 </p>
               ))}
             </div>
+
+            <p style={{
+              fontSize: 10.5, fontStyle: "italic", color: "#a9788c",
+              marginBottom: 14, lineHeight: 1.4, padding: "0 4px",
+            }}>
+              Khi đặt đơn xong hãy quay lại nhóm zalo đó vào khoảng 8h sáng ngày mai để kiểm tra bằng cách nhắn #donhang và #vitien vào nhóm nhé!
+            </p>
 
             <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
               <button
@@ -303,10 +325,10 @@ function HomeContent() {
                 style={{ margin: 0, fontSize: 12, flex: 1 }}
                 onClick={() => setShowExpiredOverlay(false)}
               >
-                Không mua!
+                Quảng cáo
               </button>
               <button
-                className="btn-main"
+                className="btn-main btn-blink"
                 style={{ margin: 0, fontSize: 18, flex: 1.4 }}
                 onClick={handleRestoreLink}
               >
