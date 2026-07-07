@@ -302,7 +302,7 @@ function HomeContent() {
                 "Không bấm vào link áp mã giảm giá sau khi bấm link",
               ].map((line, i) => (
                 <p key={i} style={{
-                  fontSize: 14, fontWeight: 700, color: "#444",
+                  fontSize: 18, fontWeight: 700, color: "#444",
                   margin: i === 0 ? "0 0 9px" : "9px 0",
                   lineHeight: 1.35,
                 }}>
@@ -318,7 +318,7 @@ function HomeContent() {
               border: "1px solid rgba(120,200,185,0.5)",
               borderRadius: 10,
             }}>
-              Khi đặt đơn xong hãy quay lại nhóm zalo đó vào khoảng 8h sáng ngày mai để kiểm tra bằng cách nhắn #donhang và #vitien vào nhóm nhé!
+              Khi đặt đơn xong hãy quay lại nhóm zalo đó vào khoảng 8h sáng ngày mai để kiểm tra bằng cách nhắn <strong style={{ color: "#ff4d6d", fontWeight: 900 }}>#donhang</strong> và <strong style={{ color: "#ff4d6d", fontWeight: 900 }}>#vitien</strong> vào nhóm nhé!
             </p>
 
             <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
@@ -329,21 +329,23 @@ function HomeContent() {
               >
                 Quảng cáo
               </button>
-              <button
-                className="btn-main btn-blink"
-                style={{ margin: 0, fontSize: 18, flex: 1.4 }}
-                onClick={handleRestoreLink}
-              >
-                MUA NGAY!
-              </button>
+              <div style={{ flex: 1.4, display: "flex", flexDirection: "column" }}>
+                <button
+                  className="btn-main btn-blink"
+                  style={{ margin: 0, fontSize: 18, width: "100%" }}
+                  onClick={handleRestoreLink}
+                >
+                  MUA NGAY!
+                </button>
+                <span style={{
+                  fontSize: 9, color: "#aaa", fontWeight: 600,
+                  textAlign: "center", marginTop: 3,
+                }}>
+                  Chuyển qua Shopee
+                </span>
+              </div>
             </div>
 
-            <p style={{
-              fontSize: 10, fontStyle: "italic", color: "#d4a017",
-              marginTop: 12, lineHeight: 1.4,
-            }}>
-              Tuyên dương và đề cao tinh thần tố cáo kẻ chộm hay mồi chào và cướp khách!
-            </p>
           </div>
         </div>
       )}
