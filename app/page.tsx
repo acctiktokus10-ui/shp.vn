@@ -252,28 +252,65 @@ function HomeContent() {
           zIndex: 2000, padding: 20,
         }}>
           <div style={{
-            background: "#fff", borderRadius: 20, padding: "28px 22px",
+            background: "linear-gradient(160deg, #fff9fb 0%, #fff0f5 50%, #ffe8f2 100%)",
+            borderRadius: 24, padding: "26px 22px",
             maxWidth: 320, width: "100%", textAlign: "center",
             boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+            border: "3px solid #ffd6e6",
+            position: "relative",
+            overflow: "hidden",
           }}>
-            <div style={{ fontSize: 40, marginBottom: 10 }}>⏰</div>
-            <p style={{ fontSize: 16, fontWeight: 800, color: "#ff4d6d", marginBottom: 20, lineHeight: 1.5 }}>
-              Xin lỗi tình yêu vì đã quá 120 phút! Vui lòng ấn Khôi phục link để tiếp tục mua sắm nhé!
+            {/* Trang trí góc cho cute hơn */}
+            <div style={{ position: "absolute", top: -20, left: -20, fontSize: 60, opacity: 0.15, transform: "rotate(-15deg)" }}>🌸</div>
+            <div style={{ position: "absolute", bottom: -18, right: -18, fontSize: 60, opacity: 0.15, transform: "rotate(15deg)" }}>💕</div>
+
+            <p style={{
+              fontSize: 15, fontWeight: 900, color: "#ff4d6d",
+              marginBottom: 14, display: "flex", alignItems: "center",
+              justifyContent: "center", gap: 6,
+            }}>
+              <span>⚠️</span> LƯU Ý QUAN TRỌNG <span>💡</span>
             </p>
-            <div style={{ display: "flex", gap: 10 }}>
+
+            <div style={{
+              background: "rgba(255,255,255,0.7)",
+              border: "1.5px dashed #ffb7c9",
+              borderRadius: 16,
+              padding: "14px 14px",
+              marginBottom: 18,
+              textAlign: "left",
+            }}>
+              {[
+                "Xóa sản phẩm này khỏi giỏ hàng (nếu có)",
+                "Bấm link bỏ giỏ hoặc mua ngay",
+                "Thao tác chậm lại để Shopee ghi nhận đơn",
+                "Không xem live trước hoặc sau khi bấm link",
+                "Không bấm vào link áp mã giảm giá sau khi bấm link",
+              ].map((line, i) => (
+                <p key={i} style={{
+                  fontSize: 13, fontWeight: 700, color: "#444",
+                  margin: i === 0 ? "0 0 10px" : "10px 0",
+                  lineHeight: 1.4,
+                }}>
+                  {i + 1}. {line} ✅
+                </p>
+              ))}
+            </div>
+
+            <div style={{ display: "flex", gap: 10, alignItems: "stretch" }}>
               <button
                 className="btn-secondary"
-                style={{ margin: 0 }}
+                style={{ margin: 0, fontSize: 12, flex: 1 }}
                 onClick={() => setShowExpiredOverlay(false)}
               >
-                Không Thích!
+                Không mua!
               </button>
               <button
                 className="btn-main"
-                style={{ margin: 0 }}
+                style={{ margin: 0, fontSize: 18, flex: 1.4 }}
                 onClick={handleRestoreLink}
               >
-                Khôi Phục Link!
+                MUA NGAY!
               </button>
             </div>
           </div>
